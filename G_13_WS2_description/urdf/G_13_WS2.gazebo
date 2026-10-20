@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<robot name="G_13_WS2" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+
+<gazebo reference="base_link">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="lidar_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="camara_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="caster_1">
+  <material>${body_color}</material>
+  <mu1>0.0</mu1>
+  <mu2>0.0</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="right_wheel_1">
+  <material>Gazebo/red</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="left__heel_1">
+  <material>Gazebo/red</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+<gazebo>
+  <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+    <left_joint>leftjoint</left_joint>
+    <right_joint>rightjoint</right_joint>
+    
+    <wheel_separation>0.18</wheel_separation>
+    <wheel_radius>0.0375</wheel_radius> 
+    
+    <odom_publish_frequency>30</odom_publish_frequency>
+    <topic>/cmd_vel</topic>
+  </plugin>
+</gazebo>
+
+</robot>
